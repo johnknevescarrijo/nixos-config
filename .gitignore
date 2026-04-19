@@ -1,0 +1,4 @@
+result
+*.swp
+*.tmp
+flake.lock
