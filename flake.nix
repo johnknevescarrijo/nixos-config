@@ -1,5 +1,5 @@
 {
-  description = "NixOS + Niri";
+  description = "NixOS + Niri + Distrobox";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -13,6 +13,14 @@
       inherit system;
       modules = [
         ./configuration.nix
+        {
+          # Configuração do Distrobox e Podman
+          virtualisation.podman = {
+            enable = true;
+            dockerCompat = false;  # opcional: permite usar comando 'docker'
+          };
+          environment.systemPackages = [ nixpkgs.legacyPackages.${system}.distrobox ];
+        }
       ];
     };
   };
