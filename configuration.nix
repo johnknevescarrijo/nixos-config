@@ -210,6 +210,12 @@
    waybar               # barra de status (se quiser)
    lollypop             # player de música
    fastfetch            #Customizar terminal
+   #Pacote Libreooffice
+   libreoffice-fresh
+   hunspell
+   hunspellDicts.pt_BR
+   hunspellDicts.en_US
+   papers              #Visualizador de Documentos
   ];
 
   # Configurações especiais para alguns programas
