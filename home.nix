@@ -14,18 +14,25 @@
   
   targets.genericLinux.enable = true;
 
-  # 🔒 Lock por inatividade (simples e funcional)
   services.swayidle = {
-    enable = true;
-    systemdTargets = [ "graphical-session.target" ];
+  enable = true;
+  systemdTargets = [ "graphical-session.target" ];
 
-    timeouts = [
-      {
-        timeout = 300; # 5 minutos
-        command = "swaylock -f";
-      }
-    ];
-  };
+  events = [
+    {
+      event = "before-sleep";
+      command = "noctalia-shell ipc call lockScreen lock";
+    }
+  ];
+
+  timeouts = [
+    {
+      timeout = 300;
+      command = "swaylock -f";
+     }
+   ];
+ };  
+
   #Abrir APPS Java
   home.sessionVariables = {
     _JAVA_AWT_WM_NONREPARENTING = "1";

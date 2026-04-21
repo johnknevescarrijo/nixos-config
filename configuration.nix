@@ -114,16 +114,24 @@
   services.udisks2.enable = true;  
   
   #Bloqueio de tela
-  services.logind = {
-  settings = {
-    Login = {
-      HandleLidSwitch = "suspend";
-      HandleLidSwitchExternalPower = "suspend";
-      HandleSuspendKey = "suspend";
-     };
+  systemd.services.lock-before-sleep = {
+  description = "Lock screen before suspend";
+  wantedBy = [ "sleep.target" ];
+  before = [ "sleep.target" ];
+
+  serviceConfig = {
+    Type = "oneshot";
+    User = "john";
+
+    ExecStart = ''
+      /run/current-system/sw/bin/env \
+      XDG_RUNTIME_DIR=/run/user/1000 \
+      DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus \
+      WAYLAND_DISPLAY=wayland-0 \
+      noctalia-shell ipc call lockScreen lock
+    '';
    };
  };
-
   security.pam.services.swaylock = {};
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
