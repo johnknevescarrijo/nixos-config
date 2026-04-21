@@ -223,6 +223,9 @@
    ntfs3g              # Suporte para partições NTFS (Windows)
    dosfstools          # Suporte para partições FAT
    btrfs-progs         # Suporte para partições btrfs
+   obsidian            #App de anotações
+   logisim-evolution   #Projetos de hardware
+   anki-bin            #Estudos de idioma
   ];
 
   # Configurações especiais para alguns programas
