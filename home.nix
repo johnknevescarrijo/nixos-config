@@ -1,32 +1,30 @@
 { config, pkgs, noctalia, ... }:
 
 {
+  # Importa o módulo do Noctalia
   imports = [ noctalia.homeModules.default ];
 
+  # Versão do estado do home-manager
   home.stateVersion = "25.05";
 
+  # Ativa o Noctalia
   programs.noctalia-shell = {
     enable = true;
   };
 
-  # ⏱️ Lock por inatividade
+  # 🔒 Lock por inatividade (simples e funcional)
   services.swayidle = {
-  enable = true;
-  systemdTarget = "graphical-session.target";
+    enable = true;
+    systemdTarget = "graphical-session.target";
 
-  events = [
-     {
-      event = "before-sleep";
-      command = "swaylock -f";
-     }
-   ];
+    timeouts = [
+      {
+        timeout = 300; # 5 minutos
+        command = "swaylock -f";
+      }
+    ];
+  };
 
-  timeouts = [
-    {
-      timeout = 300;
-      command = "swaylock -f";
-     }
-   ];
- };
+  # Pacotes do usuário (pode deixar vazio)
   home.packages = [ ];
 }
