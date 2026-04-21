@@ -25,7 +25,9 @@
     efi /EFI/fedora/grubx64.efi
   '';
 };  
-
+ 
+  #Configuração de Swap
+  swapDevices = [ { device = "/dev/disk/by-uuid/46fbef4d-c872-4c90-ba45-1f78f1b5d800"; } ];
 	
   #Limpeza automatica
   nix.gc = {
