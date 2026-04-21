@@ -17,7 +17,7 @@
   # 🔒 Lock por inatividade (simples e funcional)
   services.swayidle = {
     enable = true;
-    systemdTarget = "graphical-session.target";
+    systemdTargets = [ "graphical-session.target" ];
 
     timeouts = [
       {
