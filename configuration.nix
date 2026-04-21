@@ -186,6 +186,7 @@
     curl
     wget
     git
+    rclone
 
    #Audio
    pavucontrol
