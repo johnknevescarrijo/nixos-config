@@ -216,6 +216,12 @@
    hunspellDicts.pt_BR
    hunspellDicts.en_US
    papers              #Visualizador de Documentos
+   gparted             #Controle de Disco
+   #Suporte de Partições
+   exfatprogs          # Suporte para partições exFAT
+   ntfs3g              # Suporte para partições NTFS (Windows)
+   dosfstools          # Suporte para partições FAT
+   btrfs-progs         # Suporte para partições btrfs
   ];
 
   # Configurações especiais para alguns programas
