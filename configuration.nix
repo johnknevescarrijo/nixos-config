@@ -88,19 +88,6 @@
      };
    };
  };
-  #Pedir senha quando suspender
-  systemd.services.lock-before-sleep = {
-  description = "Lock screen before suspend";
-  wantedBy = [ "sleep.target" ];
-  before = [ "sleep.target" ];
-
-  serviceConfig = {
-    Type = "oneshot";
-    User = "john";
-    Environment = "XDG_RUNTIME_DIR=/run/user/1000";
-    ExecStart = "/run/current-system/sw/bin/noctalia-shell ipc call lockScreen lock";
-  };
-};
   
   #Teclado
   services.xserver.xkb = {
@@ -125,7 +112,19 @@
   #Serve para acesar arquivos e dispositivos
   services.gvfs.enable = true;
   services.udisks2.enable = true;  
+  
+  #Bloqueio de tela
+  services.logind = {
+  settings = {
+    Login = {
+      HandleLidSwitch = "suspend";
+      HandleLidSwitchExternalPower = "suspend";
+      HandleSuspendKey = "suspend";
+     };
+   };
+ };
 
+  security.pam.services.swaylock = {};
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;

@@ -9,17 +9,24 @@
     enable = true;
   };
 
+  # ⏱️ Lock por inatividade
   services.swayidle = {
-    enable = true;
-    systemdTarget = "graphical-session.target";
+  enable = true;
+  systemdTarget = "graphical-session.target";
 
-    timeouts = [
-      {
-        timeout = 300;
-        command = "noctalia-shell ipc call lockScreen lock";
-      }
-    ];
-  };
+  events = [
+     {
+      event = "before-sleep";
+      command = "swaylock -f";
+     }
+   ];
 
+  timeouts = [
+    {
+      timeout = 300;
+      command = "swaylock -f";
+     }
+   ];
+ };
   home.packages = [ ];
 }
