@@ -275,7 +275,10 @@
       ExecStart = "${pkgs.mako}/bin/mako";
     };
   };
-
+  #Para APPs Java
+  environment.sessionVariables = {
+  _JAVA_AWT_WM_NONREPARENTING = "1";
+ };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

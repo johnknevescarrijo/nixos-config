@@ -11,6 +11,8 @@
   programs.noctalia-shell = {
     enable = true;
   };
+  
+  targets.genericLinux.enable = true;
 
   # 🔒 Lock por inatividade (simples e funcional)
   services.swayidle = {
@@ -24,6 +26,10 @@
       }
     ];
   };
+  #Abrir APPS Java
+  home.sessionVariables = {
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+  };  
 
   # Pacotes do usuário (pode deixar vazio)
   home.packages = [ ];
