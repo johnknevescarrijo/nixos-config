@@ -89,14 +89,18 @@
    };
  };
   #Pedir senha quando suspender
-  services.logind = {
-  settings = {
-    Login = {
-      HandleLidSwitch = "suspend";
-      HandleLidSwitchExternalPower = "suspend";
-     };
-   };
- };
+  systemd.services.lock-before-sleep = {
+  description = "Lock screen before suspend";
+  wantedBy = [ "sleep.target" ];
+  before = [ "sleep.target" ];
+
+  serviceConfig = {
+    Type = "oneshot";
+    User = "john";
+    Environment = "XDG_RUNTIME_DIR=/run/user/1000";
+    ExecStart = "/run/current-system/sw/bin/noctalia-shell ipc call lockScreen lock";
+  };
+};
   
   #Teclado
   services.xserver.xkb = {
