@@ -195,7 +195,8 @@
     
     # Python
     uv
-    
+    # Java
+    jdk21        
     # Utilitários
     curl
     wget
