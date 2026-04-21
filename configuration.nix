@@ -83,8 +83,17 @@
   enable = true;
   settings = {
     default_session = {
-      command = "${pkgs.tuigreet}/bin/tuigreet --cmd niri";
+      command = "${pkgs.tuigreet}/bin/regreet";
       user = "john";
+     };
+   };
+ };
+  #Pedir senha quando suspender
+  services.logind = {
+  settings = {
+    Login = {
+      HandleLidSwitch = "suspend";
+      HandleLidSwitchExternalPower = "suspend";
      };
    };
  };
@@ -155,7 +164,7 @@
      #Define interface
      xdg-desktop-portal-gtk
      #Tela de login
-     tuigreet    
+     regreet    
       
     # Editores / IDEs
     vscode
