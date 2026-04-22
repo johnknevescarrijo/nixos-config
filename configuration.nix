@@ -12,7 +12,8 @@
  
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  #Execução de Binarios Dinamicos
+  programs.nix-ld.enable = true;  
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.editor=true;		
