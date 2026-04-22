@@ -7,25 +7,25 @@
 
   programs.noctalia-shell.enable = true;
 
-  targets.genericLinux.enable = true;
-
-  # 🔐 LOCK ANTES DE SUSPENDER (CORRETO)
+  targets.genericLinux.enable = true;  
+   
   services.swayidle = {
   enable = true;
 
   systemdTarget = "graphical-session.target";
-  
-  events = {
-    before-sleep = "${pkgs.swaylock}/bin/swaylock -f";
-  };
 
   timeouts = [
     {
       timeout = 300;
       command = "${pkgs.swaylock}/bin/swaylock -f";
-     }
-   ];
- };  
+    }
+  ];
+
+  events = {
+    before-sleep = "${pkgs.swaylock}/bin/swaylock -f";
+    lock = "${pkgs.swaylock}/bin/swaylock -f";
+   };
+ };
 
   # 🔑 Java fix
   home.sessionVariables = {
