@@ -114,13 +114,17 @@
   services.udisks2.enable = true;  
   
   #Bloqueio de tela
-  services.logind.settings = {
-  Login = {
-    HandleLidSwitch = "suspend";
-    HandleLidSwitchExternalPower = "suspend";
+  services.logind = {
+  settings = {
+    Login = {
+      HandleLidSwitch = "suspend";
+      HandleLidSwitchExternalPower = "suspend";
+      HandleLidSwitchDocked = "ignore";
+     };
    };
  };
-  security.pam.services.swaylock = {};
+
+#  security.pam.services.swaylock = {};
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;

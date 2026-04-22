@@ -9,33 +9,25 @@
 
   targets.genericLinux.enable = true;
 
+  # 🔐 LOCK ANTES DE SUSPENDER (CORRETO)
   services.swayidle = {
-    enable = true;
-    systemdTarget = "graphical-session.target";
+  enable = true;
 
-    events = [
-      {
-        event = "before-sleep";
-        command = "${pkgs.noctalia-shell}/bin/noctalia-shell ipc call lockScreen lock";
-      }
-    ];
-
-    timeouts = [
-      {
-        timeout = 300;
-        command = "swaylock -f";
-      }
-    ];
+  systemdTarget = "graphical-session.target";
+  
+  events = {
+    before-sleep = "${pkgs.swaylock}/bin/swaylock -f";
   };
 
-  # 🔥 ESSENCIAL: garantir que swayidle inicia
-  systemd.user.services.swayidle = {
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-  };
+  timeouts = [
+    {
+      timeout = 300;
+      command = "${pkgs.swaylock}/bin/swaylock -f";
+     }
+   ];
+ };  
 
-  # Java fix (ok manter)
+  # 🔑 Java fix
   home.sessionVariables = {
     _JAVA_AWT_WM_NONREPARENTING = "1";
   };
