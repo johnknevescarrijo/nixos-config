@@ -147,17 +147,23 @@
   users.users.john.shell = pkgs.fish;
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
+  
+  #Vit-manager configuração
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd.qemu.runAsRoot = false;
+  virtualisation.spiceUSBRedirection.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.john = {
     isNormalUser = true;
     description = "john";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
     #  thunderbird
     ];
   };
-
+  
+ 
   # Install firefox.
   programs.firefox.enable = true;
   
