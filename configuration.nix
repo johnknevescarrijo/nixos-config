@@ -163,6 +163,14 @@
     ];
   };
   
+  # Habilita o Bluetooth no hardware e liga o controlador na inicialização
+  hardware.bluetooth = {
+    enable = true;       # Habilita o suporte a Bluetooth
+    powerOnBoot = true;  # Liga o adaptador automaticamente ao ligar o PC
+  };
+ 
+   # Interface gráfica para gerenciar dispositivos Bluetooth (altamente recomendado)
+  services.blueman.enable = true;  
  
   # Install firefox.
   programs.firefox.enable = true;
