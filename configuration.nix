@@ -220,11 +220,11 @@
 
    #Audio
    pavucontrol
-   xfce.xfce4-volumed-pulse   # Gerencia teclas de volume
+   xfce4-volumed-pulse   # Gerencia teclas de volume
    wireplumber
 
    #Progrmas do Niri
-   alacritty
+   #alacritty -> utilizando kitty no lugar
    fuzzel
    swaybg
    swaylock
