@@ -256,6 +256,7 @@
    obsidian            #App de anotações
    logisim-evolution   #Projetos de hardware
    anki-bin            #Estudos de idioma
+   qalculate-gtk        #Calculadora
   ];
 
   # Configurações especiais para alguns programas
