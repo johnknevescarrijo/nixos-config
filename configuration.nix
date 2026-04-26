@@ -188,6 +188,8 @@
     vscode
     vscodium                     # versão open-source (opcional)
     neovim
+    #GUI do Neovim
+    neovide
     
     # Terminal
     kitty
