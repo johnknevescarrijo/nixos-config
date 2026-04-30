@@ -109,6 +109,9 @@
   boot.kernelParams = [ "snd-hda-intel.model=auto" ];
   #Bateria  
   services.upower.enable = true;
+
+  #Habilitando tlp
+  services.tlp.enable = true;
   
   #Serve para acesar arquivos e dispositivos
   services.gvfs.enable = true;
@@ -259,6 +262,8 @@
    logisim-evolution   #Projetos de hardware
    anki-bin            #Estudos de idioma
    qalculate-gtk        #Calculadora
+    zip                 #zip
+    unzip               #descompactador
   ];
 
   # Configurações especiais para alguns programas
