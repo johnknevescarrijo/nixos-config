@@ -11,6 +11,7 @@
 
     withPython3 = true;
     withNodeJs = true;
+    withRuby = false;
   };
 
   home.packages = with pkgs; [

@@ -1,7 +1,7 @@
 { config, pkgs, noctalia, ... }:
 
 {
-  imports = [ noctalia.homeModules.default ];
+  imports = [ noctalia.homeModules.default ./modules/nvchad.nix ];
 
   home.stateVersion = "25.05";
 
