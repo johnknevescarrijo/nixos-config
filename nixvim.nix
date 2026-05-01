@@ -129,6 +129,20 @@
       # =========================
       dap.enable = true;
       dap-ui.enable = true;
+
+      # =========================
+      # UndoTree - Visualizar histórico de edições
+      # =========================
+      undotree = {
+        enable = true;
+        settings = {
+          WindowLayout = 2;           # Layout avançado (árvore + diff)
+          SplitWidth = 40;            # Largura da janela
+          DiffAutoOpen = true;        # Abrir diff automaticamente
+          HighlightChangedText = true;
+          SetFocusWhenOpen = false;   # Manter foco no arquivo original
+        };
+      };
     };
 
     # =========================
@@ -200,7 +214,32 @@
         action = "<cmd>lua require'dap'.step_out()<CR>";
       }
 
+      # ↩️ UndoTree (histórico visual)
+      {
+        mode = "n";
+        key = "<leader>u";
+        action = "<cmd>UndotreeToggle<CR>";
+        options = {
+          desc = "Toggle undotree (visual undo history)";
+        };
+      }
     ];
+
+    # =========================
+    # Configurações Lua extras
+    # =========================
+    extraConfigLua = ''
+      -- Configuração do undo persistente (fora do opts para evitar erro)
+      local undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
+      if vim.fn.isdirectory(undodir) == 0 then
+        vim.fn.mkdir(undodir, "p")
+      end
+      vim.opt.undofile = true
+      vim.opt.undodir = undodir
+      
+      -- Garantir que o undotree funciona
+      vim.g.undotree_SetFocusWhenToggle = 1
+    '';
 
     # =========================
     # Ferramentas externas
@@ -222,3 +261,4 @@
     ];
   };
 }
+
