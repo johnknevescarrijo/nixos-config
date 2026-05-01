@@ -205,7 +205,11 @@
     ninja                        # build system alternativo
     clang-tools                  # linter/formatter C/C++
     bear                         # gerador de compile_commands.json
-    
+    #kickstart.vim
+    gnumake
+    ripgrep
+    fd 
+    tree-sitter   
     # Bancos de dados
     dbeaver-bin                   # cliente SQL [citation:5]
     
