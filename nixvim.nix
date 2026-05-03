@@ -143,6 +143,19 @@
           SetFocusWhenOpen = false;   # Manter foco no arquivo original
         };
       };
+      # =========================
+      # Plugins extras
+      # =========================
+
+      nvim-autopairs.enable = true;
+
+      comment.enable = true;
+
+       bufferline.enable = true;
+
+       toggleterm.enable = true;
+
+       trouble.enable = true;
     };
 
     # =========================
