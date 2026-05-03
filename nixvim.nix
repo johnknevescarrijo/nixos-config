@@ -104,6 +104,7 @@
           pyright.enable = true;
           lua_ls.enable = true;
           bashls.enable = true;
+          nixd.enable = true;
         };
       };
 
@@ -236,6 +237,12 @@
           desc = "Toggle undotree (visual undo history)";
         };
       }
+     #Atalho para Terminal
+      {
+         mode = "n";
+         key = "<leader>t";
+         action = "<cmd>ToggleTerm<CR>";
+      }
     ];
 
     # =========================
@@ -271,6 +278,7 @@
       bash-language-server
 
       stylua
+      nixd
     ];
   };
 }
