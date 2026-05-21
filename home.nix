@@ -71,7 +71,23 @@
       set -g status-right '#[fg=black,bg=colour15] %H:%M '
     '';
   };
-
+  #Abrir documentos automaticamente
+  xdg.mimeApps = {
+  enable = true;
+  defaultApplications = {
+    "application/pdf" = [ "org.gnome.Papers.desktop" ];
+    "application/postscript" = [ "org.gnome.Papers.desktop" ];
+    "image/tiff" = [ "org.gnome.Papers.desktop" ];
+    "image/x.djvu" = [ "org.gnome.Papers.desktop" ];
+    "image/bmp" = [ "imv.desktop" ];        # Exemplo usando imv.desktop
+    "image/gif" = [ "imv.desktop" ];
+    "image/jpeg" = [ "imv.desktop" ];
+    "image/jpg" = [ "imv.desktop" ];
+    "image/png" = [ "imv.desktop" ];
+    "image/svg+xml" = [ "imv.desktop" ];
+    "image/webp" = [ "imv.desktop" ];
+   };
+ };  
 
   home.packages = [ ];
 }
