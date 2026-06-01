@@ -24,8 +24,9 @@
   events = {
     before-sleep = "${pkgs.swaylock}/bin/swaylock -f -c 000000";
     lock = "${pkgs.swaylock}/bin/swaylock -f -c 000000";
-   };
- };
+    };
+  };
+
 
   # 🔑 Java fix
   home.sessionVariables = {
@@ -89,5 +90,5 @@
    };
  };  
 
-  home.packages = [ ];
+  home.packages = [pkgs.nodejs ];
 }
