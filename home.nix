@@ -1,11 +1,11 @@
 { config, pkgs, noctalia, ... }:
 
 {
-  imports = [ noctalia.homeModules.default ./modules/nixvim.nix ];
+  imports = [ noctalia.homeModules.default ];
 
   home.stateVersion = "25.05";
 
-  programs.noctalia-shell.enable = true;
+  programs.noctalia.enable = true;
 
   targets.genericLinux.enable = true;  
    

@@ -84,7 +84,7 @@
   enable = true;
   settings = {
     default_session = {
-      command = "${pkgs.tuigreet}/bin/tuigreet";
+      command = "${pkgs.niri}/bin/niri";
       user = "john";
      };
    };
